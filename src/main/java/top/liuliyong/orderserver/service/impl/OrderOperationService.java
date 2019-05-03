@@ -10,7 +10,6 @@ import top.liuliyong.orderserver.common.exception.OrderOperationException;
 import top.liuliyong.orderserver.common.model.OrderEntity;
 import top.liuliyong.orderserver.repository.impl.OrderRepository;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -41,7 +40,7 @@ public class OrderOperationService {
         try {
             checkAccount = accountClient.findAccountByAccountId(session_id, orderEntity.getAccount_id());
         } catch (Exception e) {
-            log.error("feign查询账户信息出错",e);
+            log.error("feign查询账户信息出错", e);
         }
         if (checkAccount == null || checkAccount.getRtn() != 0 || checkAccount.getData() == null) {
             log.error("未找到对应的账户,id===>{}", orderEntity.getAccount_id());
