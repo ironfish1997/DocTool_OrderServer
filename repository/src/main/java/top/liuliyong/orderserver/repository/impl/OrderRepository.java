@@ -1,14 +1,13 @@
-package top.liuliyong.orderserver.impl;
+package top.liuliyong.orderserver.repository.impl;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 import top.liuliyong.orderserver.common.model.OrderEntity;
 
 import java.util.List;
-
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
 
 /**
  * @Author liyong.liu
