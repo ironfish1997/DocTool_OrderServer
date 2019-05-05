@@ -1,5 +1,7 @@
 package top.liuliyong.orderserver.service.impl;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cglib.beans.BeanMap;
 import org.springframework.stereotype.Service;
@@ -16,17 +18,15 @@ import java.util.List;
  * @Author liyong.liu
  * @Date 2019-05-02
  **/
-@Service
 @Slf4j
+@Service
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderOperationService {
 
-    private final OrderRepository orderRepository;
-    private final AccountClient accountClient;
+    private OrderRepository orderRepository;
+    private AccountClient accountClient;
 
-    public OrderOperationService(OrderRepository orderRepository, AccountClient accountClient) {
-        this.orderRepository = orderRepository;
-        this.accountClient = accountClient;
-    }
 
     /**
      * 保存药物订单

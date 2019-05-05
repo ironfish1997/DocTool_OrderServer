@@ -1,4 +1,4 @@
-package top.liuliyong.orderserver.repository.impl;
+package top.liuliyong.orderserver.impl;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -33,27 +33,27 @@ public class OrderRepository {
      * 通过patient_id_number查找该用户所有订单信息
      */
     public List<OrderEntity> findByPatientIdNumber(String patientIdNumber) {
-        return mongoTemplate.find(query(where("account_id").is(patientIdNumber)), OrderEntity.class);
+        return mongoTemplate.find(Query.query(Criteria.where("account_id").is(patientIdNumber)), OrderEntity.class);
     }
 
     /**
      * 更新订单
      */
     public OrderEntity updateOrderItem(OrderEntity updateOrderEntity) {
-        return mongoTemplate.findAndReplace(query(where("_id").is(new ObjectId(updateOrderEntity.getId()))), updateOrderEntity);
+        return mongoTemplate.findAndReplace(Query.query(Criteria.where("_id").is(new ObjectId(updateOrderEntity.getId()))), updateOrderEntity);
     }
 
     /**
      * 根据订单id查找订单信息
      */
     public OrderEntity findByOrderId(String id) {
-        return mongoTemplate.findOne(query(where("_id").is(new ObjectId(id))), OrderEntity.class);
+        return mongoTemplate.findOne(Query.query(Criteria.where("_id").is(new ObjectId(id))), OrderEntity.class);
     }
 
     /**
      * 根据订单id删除订单
      */
     public OrderEntity deleteOrderItem(String orderId) {
-        return mongoTemplate.findAndRemove(query(where("_id").is(new ObjectId(orderId))), OrderEntity.class);
+        return mongoTemplate.findAndRemove(Query.query(Criteria.where("_id").is(new ObjectId(orderId))), OrderEntity.class);
     }
 }
