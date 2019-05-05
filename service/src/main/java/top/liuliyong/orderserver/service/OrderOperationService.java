@@ -1,8 +1,9 @@
-package top.liuliyong.orderserver.service.impl;
+package top.liuliyong.orderserver.service;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanMap;
 import org.springframework.stereotype.Service;
 import top.liuliyong.account.client.AccountClient;
@@ -19,12 +20,14 @@ import java.util.List;
  * @Date 2019-05-02
  **/
 @Slf4j
-@Service
 @NoArgsConstructor
 @AllArgsConstructor
+@Service
 public class OrderOperationService {
 
+    @Autowired
     private OrderRepository orderRepository;
+    @Autowired
     private AccountClient accountClient;
 
 
