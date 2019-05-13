@@ -22,6 +22,7 @@ import java.util.List;
 @Api(value = "order", description = "药物订单服务")
 @RequestMapping(path = "/order")
 @Validated
+@CrossOrigin
 public class OrderOperationController {
 
     private final OrderOperationService orderOperationService;

@@ -1,5 +1,6 @@
 package top.liuliyong.orderserver.web.config;
 
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -7,9 +8,6 @@ import org.springframework.context.annotation.Configuration;
  * @Date 2019-05-04
  **/
 @Configuration
+@RefreshScope
 public class SpringConfig {
-//    @Bean
-//    public OrderOperationService orderOperationService(){
-//        return new OrderOperationService();
-//    }
 }
